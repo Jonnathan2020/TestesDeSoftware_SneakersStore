@@ -27,4 +27,26 @@ test("adicionar ao carrinho", async ({page}) => {
     await page.getByRole('link', { name: 'Finalizar compra' }).click();
 
     await page.waitForTimeout(1500)
+
+    await page.getByTestId('login-email-input').click();
+
+    await page.waitForTimeout(500)
+
+    await await page.getByTestId('login-email-input').fill("jonnathan@gmail.com");
+
+    await page.waitForTimeout(1500)
+
+    await page.getByTestId('login-password-input').click();
+
+    await page.waitForTimeout(500)
+
+    await page.getByTestId('login-password-input').fill("senhaforte123")
+
+    await page.waitForTimeout(1500)
+
+    await page.locator('div').filter({ hasText: /^Remember me$/ }).click();
+
+    await page.getByTestId('login-submit-button').click();
+
+    await page.waitForTimeout(1500);
 })
